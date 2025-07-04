@@ -1,0 +1,27 @@
+# Register a new user
+curl -X POST http://localhost:3000/register \
+  -H "Content-Type: application/json" \
+  -d '{
+    "username": "alice",
+    "password": "password123",
+    "email": "alice@example.com",
+    "city": "Wonderland",
+    "deviceId": "device123",
+    "makePublic": true
+  }'
+
+# Authenticate a user
+curl -X POST http://localhost:3000/authenticate \
+  -H "Content-Type: application/json" \
+  -d '{"username": "alice", "password": "password123"}'
+
+# Fetch a user profile
+curl http://localhost:3000/alice
+
+# Update a user profile
+curl -X PUT http://localhost:3000/alice \
+  -H "Content-Type: application/json" \
+  -d '{"city": "New Wonderland", "makePublic": false}'
+
+# Find who owns a device
+curl http://localhost:3000/owns/device123
