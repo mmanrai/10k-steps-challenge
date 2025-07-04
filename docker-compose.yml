@@ -56,3 +56,11 @@ services:
     ports:
       - "1025:1025"
       - "8025:8025"
+
+  infinispan:
+    image: quay.io/infinispan/server:15.2
+    ports:
+      - "11222:11222"
+    environment:
+      USER: "admin"
+      PASS: "password"
